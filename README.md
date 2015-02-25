@@ -8,12 +8,12 @@ CWOAWS CORE Ansible Playbook Tasks:
 -  create 1 x VPC with 2 x VPC subnets in differrent AZ zones one AWS region
 -  create 1 x security group
 -  provision 2 x EC2 instance in 2 different AZ
--  Install webservers role on both instances (includes of other roles is possible webservers i required for instance ELB registration)
+-  Install webservers role on both instances (includes of other roles is possible, webservers role is required to allow instance registration to ELB)
 -  launch and configure public facing VPC ELB (cross_az_load_balancing) and attach VPC subnets
 -  deregister and register EC2 instances on ELB.
 -  info about ELB dnsname is writted in vars file and later can be used for DNS configuration
 
-All informations about VPC-u are defined in main.yml andvvpc_info.yml file (AZ, regions, keypair, vpc, subnets, elb dns name info) 
+All informations about VPC are defined in main.yml and vpc_info.yml(during playbook exexution) files (AZ, regions, keypair, vpc, subnets, elb dns name info) 
 .
 
 # Installation
