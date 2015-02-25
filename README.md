@@ -15,70 +15,32 @@ CWOAWS CORE Ansible Playbook Tasks:
 All informations about VPC-u are defined in main.yml andvvpc_info.yml file (AZ, regions, keypair, vpc, subnets, elb dns name info) 
 .
 
-ubuntu@ansible:~/cwoaws$ tree 
-.
-├── deploy-aws-infra.yml
-├── ec2_web.yml
-├── elb.yml
-├── hosts
-├── meta
-│   └── main.yml
-├── rds.yml
-├── README
-├── roles
-│   ├── ec2_web
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── elb
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── rds
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── vpc
-│   │   └── tasks
-│   │       └── main.yml
-│   └── webservers
-│       ├── handlers
-│       │   └── main.yml
-│       └── tasks
-│           └── main.yml
-├── vars
-│   ├── dev
-│   │   ├── main.yml
-│   │   └── vpc_info.yml
-│   └── prod
-│       ├── main.yml
-│       └── vpc_info.yml
-├── vpc.yml
-└── webservers.yml
-
 Installation
 
 # Ansible and Boto installation Ubuntu 14.04 LTS
-   $ sudo apt-get install software-properties-common
-   $ sudo apt-add-repository ppa:ansible/ansible
-   $ sudo apt-get update
-   $ sudo apt-get install ansible
-   $ apt-get install python-pip
-   $ pip install boto
+-  $ sudo apt-get install software-properties-common
+-  $ sudo apt-add-repository ppa:ansible/ansible
+-  $ sudo apt-get update
+-  $ sudo apt-get install ansible
+-  $ apt-get install python-pip
+-  $ pip install boto
 
 # Download to folder /etc/ansible/
-   $ wget https://raw.github.com/ansible/ansible/devel/plugins/inventory/ec2.py
-   $ wget https://raw.githubusercontent.com/ansible/ansible/devel/plugins/inventory/ec2.ini
-   $ chmod +x /etc/ansible/ec2.py
+-  $ wget https://raw.github.com/ansible/ansible/devel/plugins/inventory/ec2.py
+-  $ wget https://raw.githubusercontent.com/ansible/ansible/devel/plugins/inventory/ec2.ini
+-  $ chmod +x /etc/ansible/ec2.py
 
 
-# In aws console create IAM user with PowerUser privileges
-# Add in file /home/ubuntu/.boto
-   [Credentials]
-   aws_access_key_id = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-   aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ In aws console create IAM user with PowerUser privileges
+Add in file /home/ubuntu/.boto
+-   [Credentials]
+-   aws_access_key_id = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+-   aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-# Add in clean file /home/ubuntu/.ansible.cfg
-   [defaults]
-   host_key_checking = False
-   private_key_file=/home/ubuntu/cwoaws/<keypair>.pem
+Add in clean file /home/ubuntu/.ansible.cfg
+-  [defaults]
+-  host_key_checking = False
+-   private_key_file=/home/ubuntu/cwoaws/<keypair>.pem
 
 
 
