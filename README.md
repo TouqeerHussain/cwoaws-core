@@ -1,4 +1,5 @@
-# cwoaws-core Ansible AWS magic - CWOAWS core Playbook
+# cwoaws-core Ansible AWS magic - 
+CWOAWS core Playbook
 http://cwoaws.s3-website.eu-central-1.amazonaws.com/session4.html
 
 Purpose of CWOAWS CORE Ansible playbook is to start full operational AWS VPC infrastructure, all services on EC2 instances, RDS, et.c and to allow later execution of separated Playbooks for deployments, etc.
@@ -15,9 +16,9 @@ CWOAWS CORE Ansible Playbook Tasks:
 All informations about VPC-u are defined in main.yml andvvpc_info.yml file (AZ, regions, keypair, vpc, subnets, elb dns name info) 
 .
 
-Installation
+# Installation
 
-# Ansible and Boto installation Ubuntu 14.04 LTS
+Ansible and Boto installation Ubuntu 14.04 LTS
 -  $ sudo apt-get install software-properties-common
 -  $ sudo apt-add-repository ppa:ansible/ansible
 -  $ sudo apt-get update
@@ -25,13 +26,13 @@ Installation
 -  $ apt-get install python-pip
 -  $ pip install boto
 
-# Download to folder /etc/ansible/
+Download to folder /etc/ansible/
 -  $ wget https://raw.github.com/ansible/ansible/devel/plugins/inventory/ec2.py
 -  $ wget https://raw.githubusercontent.com/ansible/ansible/devel/plugins/inventory/ec2.ini
 -  $ chmod +x /etc/ansible/ec2.py
 
 
- In aws console create IAM user with PowerUser privileges
+In aws console create IAM user with PowerUser privileges
 Add in file /home/ubuntu/.boto
 -   [Credentials]
 -   aws_access_key_id = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
