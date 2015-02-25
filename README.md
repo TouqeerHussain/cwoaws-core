@@ -1,5 +1,5 @@
-# cwoaws-core Ansible AWS magic - 
-CWOAWS core Playbook
+# CWOAWS CORE Ansible playbook
+
 http://cwoaws.s3-website.eu-central-1.amazonaws.com/session4.html
 
 Purpose of CWOAWS CORE Ansible playbook is to start full operational AWS VPC infrastructure, all services on EC2 instances, RDS, et.c and to allow later execution of separated Playbooks for deployments, etc.
