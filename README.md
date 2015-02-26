@@ -41,7 +41,7 @@ Add in file /home/ubuntu/.boto
 Add in clean file /home/ubuntu/.ansible.cfg
 -  [defaults]
 -  host_key_checking = False
--   private_key_file=/home/ubuntu/cwoaws/<keypair>.pem
+-   private_key_file=/home/ubuntu/<keypair>.pem
 
 
 
