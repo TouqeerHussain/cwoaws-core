@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  author: Aleksandar Nenov - Cloudwebops
-  description: Nagios NRPE Server configuration Ansible Role
-  license: license (MIT)
+  author: Aleksandar N. - cloudwebops
+  description: CWOAWS CORE Ansible playbook
+  license:
   min_ansible_version: 1.8
   platforms:
   - name: Ubuntu
