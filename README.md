@@ -43,7 +43,8 @@ Add in clean file /home/ubuntu/.ansible.cfg
 -  host_key_checking = False
 -   private_key_file=/home/ubuntu/keypair.pem
 
-
+Run Playbook:
+-  $ansible-playbook -i hosts deploy-aws-infra.yml 
 
 
 
