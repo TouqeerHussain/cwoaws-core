@@ -1,0 +1,12 @@
+---
+- vars:
+      env: prod
+  vars_files: 
+     - ["vars/{{env}}/main.yml"]
+     - ["vars/{{env}}/vpc_info.yml"]
+  hosts: local
+  connection: local
+  gather_facts: True
+  tags: ELB provisioning - register EC2 instances
+  roles:
+    - role: elb

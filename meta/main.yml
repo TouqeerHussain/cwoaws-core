@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: Aleksandar Nenov - Cloudwebops
+  description: Nagios NRPE Server configuration Ansible Role
+  license: license (MIT)
+  min_ansible_version: 1.8
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  categories:
+    - cloud
+dependencies: []

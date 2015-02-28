@@ -1,0 +1,85 @@
+---
+- name: Provision ELB
+  local_action:
+        module: ec2_elb_lb
+        state: present
+        name: "{{ elb_name }}"
+        cross_az_load_balancing: yes
+        security_group_ids:
+           - "{{ security_group_id1 }}"
+        region: "{{ aws_region }}"
+        purge_subnets: yes
+        subnets:
+           - "{{ prod_subnet_az1 }}"
+           - "{{ prod_subnet_az2 }}"
+        listeners:
+        - protocol: http
+          load_balancer_port: 80
+          instance_port: 80
+        health_check:
+          ping_protocol: http
+          ping_port: 80
+          ping_path: "/index.html" 
+          response_timeout: 5 
+          interval: 30 
+          unhealthy_threshold: 2
+          healthy_threshold: 10
+  register: info
+
+- name: write elb dnsname to vpc_info.yml file
+  local_action: shell echo elb_dns_name":" "{{ info.elb.dns_name }}"
+                      >> vars/"{{ env }}"/vpc_info.yml
+
+
+- name: De-register zone 1 instances - ELB
+  local_action:
+      module: ec2_elb
+      instance_id: "{{ item.id }}"
+      state:  absent
+      ec2_elbs: "{{ elb_name }}"
+      region: "{{ aws_region }}"
+      wait: True
+      wait_timeout: 300
+  with_items: ec2_instances_zone1.instances
+
+
+
+- name: Register zone 1 instances to ELB
+  local_action:
+        module: ec2_elb
+        instance_id: "{{ item.id }}"
+        ec2_elbs: "{{ elb_name }}"
+        state: present
+        region: "{{ aws_region }}"
+        wait: True
+        wait_timeout: 300
+  with_items: ec2_instances_zone1.instances
+
+
+
+- name: De-register zone 2 instances - ELB
+  local_action:
+      module: ec2_elb
+      instance_id: "{{ item.id }}"
+      state:  absent
+      ec2_elbs: "{{ elb_name }}"
+      region: "{{ aws_region }}"
+      wait: True
+      wait_timeout: 300
+  with_items: ec2_instances_zone2.instances
+
+
+
+- name: Register zone 2 instances - ELB
+  local_action:
+        module: ec2_elb
+        instance_id: "{{ item.id }}"
+        ec2_elbs: "{{ elb_name }}"
+        state: present
+        region: "{{ aws_region }}"
+        wait: True
+        wait_timeout: 300
+  with_items: ec2_instances_zone2.instances
+
+
+

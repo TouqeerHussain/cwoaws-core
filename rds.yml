@@ -1,0 +1,15 @@
+---
+- vars:
+      env: prod
+  vars_files:
+     - ["vars/{{env}}/main.yml"]
+     - ["vars/{{env}}/vpc_info.yml"]
+  hosts: local
+  connection: local
+  gather_facts: False
+  tags: RDS provisioning
+  roles:
+    - role: rds
+
+
+

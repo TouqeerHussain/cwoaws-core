@@ -1,0 +1,6 @@
+---
+- name: "Install webserver packages"
+  action: apt pkg={{ item }} state=installed update_cache=yes
+  with_items:
+     - apache2
+     - postfix

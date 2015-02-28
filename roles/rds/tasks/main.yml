@@ -1,0 +1,57 @@
+- name: Provision RDS security group
+  local_action:
+        module: ec2_group
+        state: present
+        name: rdssec
+        description: "rdssec - postgres"
+        vpc_id: "{{ vpc.vpc_id }}"
+        region: "{{ aws_region }}"
+        rules:
+          #- proto: udp
+          #  from_port: 5432
+          #  to_port: 5432
+          #  cidr_ip: 0.0.0.0/0
+          #- proto: tcp
+          #  from_port: 5432
+          #  to_port: 5432
+          #  cidr_ip: 0.0.0.0/0
+          - proto: all
+            group_name: ec2sec
+  register: rdsvpc
+
+
+- name: Create DB subnet group
+  local_action:
+      module: rds_subnet_group
+      state: present
+      region: "{{ aws_region }}"
+      name: "{{ aws_db_subnetgroup }}"
+      description: "rds-sg"
+      subnets: "{{ vpc.subnets | map(attribute='id') | list}}"
+
+
+- name: Provision RDS
+  local_action:
+        module: rds
+        command: create
+        region: "{{ aws_region }}"
+        multi_zone: yes
+        subnet: "{{ aws_db_subnetgroup }}"
+        vpc_security_groups: "{{ rdsvpc.group_id }}"
+        instance_name: "{{ aws_db_name }}"
+        db_engine: "{{ aws_db_engine }}"
+        size: "{{ aws_db_size }}"
+        port: 5432
+        db_name: "{{ db_name }}"
+        instance_type: "{{ aws_db_instanceType }}"
+        username: "{{ aws_db_username }}"
+        password: "{{ aws_db_password }}"
+  register: rds.instance
+
+- name:
+  local_action:
+        module: rds
+        command: facts
+        region: "{{ aws_region }}"
+        instance_name: "{{ aws_db_name }}"
+  register: new_database_facts

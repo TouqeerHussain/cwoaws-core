@@ -1,0 +1,28 @@
+---
+# EC2 INFO
+id_az1: 1
+id_az2: 2
+aws_image: ami-234ecc54
+aws_instanceType: t2.medium
+aws_keypair: cwoeuireland
+count: 1
+
+# VPC INFO
+aws_region: eu-west-1
+aws_zone1: eu-west-1a
+aws_zone2: eu-west-1b
+security_group: ec2sec1
+elb_name: cwovpc-eu-west
+vpc_name: cwovpc1-eu-west
+
+
+#RDS INFO
+aws_db_engine: postgres
+aws_db_instanceType: db.t2.micro
+aws_db_name: pgdb01
+aws_db_username: pgdb01
+aws_db_password: nvm7UrCv1Qqw1KlN
+aws_db_size: 5
+aws_db_subnetgroup: mazdbsg
+db_name: pgdb01
+

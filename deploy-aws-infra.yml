@@ -1,0 +1,6 @@
+---
+- include: vpc.yml
+- include: ec2_web.yml
+# - include: rds.yml
+- include: webservers.yml
+- include: elb.yml
