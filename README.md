@@ -4,7 +4,7 @@ Note: Work in progress
 
 Recorded Terminal Session: http://cwoaws.s3-website.eu-central-1.amazonaws.com/session4.html
 
-Purpose of CWOAWS CORE Ansible playbook is to start full operational AWS VPC infrastructure, all services on EC2 instances, RDS, etc, and to allow later execution of separated Playbooks for deployments, etc.
+Purpose of CWOAWS CORE Ansible playbook is to start operational AWS VPC infrastructure, all services on EC2 instances, RDS, etc, and to allow later execution of separated Playbooks for deployments, etc.
 
 CWOAWS CORE Ansible Playbook Tasks:
 -  create 1 x VPC with 2 x VPC subnets in differrent AZ zones one AWS region
@@ -13,7 +13,7 @@ CWOAWS CORE Ansible Playbook Tasks:
 -  Install webservers role on both instances (includes of other roles is possible, webservers role is required to allow instances registration to ELB)
 -  launch and configure public facing VPC ELB (cross_az_load_balancing) and attach VPC subnets
 -  deregister and register EC2 instances on ELB.
--  info about ELB dnsname is writted in vars file and later can be used for DNS configuration
+-  info about ELB dnsname is written in vars file and later can be used for DNS configuration
 
 All informations about VPC are defined in main.yml and vpc_info.yml(during playbook execution) files (AZ, regions, keypair, vpc, subnets, elb dns name info) 
 .
