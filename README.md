@@ -1,10 +1,13 @@
 # CWOAWS CORE Ansible playbook
 
-Note: Work in progress
+
+Note:  This is a core playbook, please review, customize per you needs, and test it first before applying on production environments! Please report any issues through GitHub or email me at alex@cloudwebops.com and I'll do my best to get back to you!
+
+
 
 Recorded Terminal Session: http://cwoaws.s3-website.eu-central-1.amazonaws.com/session4.html
 
-Purpose of CWOAWS CORE Ansible playbook is to start operational AWS VPC infrastructure, all services on EC2 instances, RDS, etc, and to allow later execution of separated Playbooks for deployments, etc.
+CWOAWS CORE Ansible playbook have a purpose to setup operational AWS VPC infrastructure, all services on EC2 instances, RDS, etc, and to allow later execution of separated Playbooks for deployments, etc.
 
 CWOAWS CORE Ansible Playbook Tasks:
 -  create 1 x VPC with 2 x VPC subnets in differrent AZ zones one AWS region
