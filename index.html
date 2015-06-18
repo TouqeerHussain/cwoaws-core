@@ -1,41 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
     <title>CWOAWS CORE by cloudwebops</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+
+    <header>
+      <div class="container">
         <h1>CWOAWS CORE</h1>
-        <p>CWOAWS CORE Ansible playbook</p>
+        <h2>CWOAWS CORE Ansible playbook</h2>
 
-        <p class="view"><a href="https://github.com/cloudwebops/cwoaws-core">View the Project on GitHub <small>cloudwebops/cwoaws-core</small></a></p>
+        <section id="downloads">
+          <a href="https://github.com/cloudwebops/cwoaws-core/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/cloudwebops/cwoaws-core/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/cloudwebops/cwoaws-core" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
 
-
-        <ul>
-          <li><a href="https://github.com/cloudwebops/cwoaws-core/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/cloudwebops/cwoaws-core/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/cloudwebops/cwoaws-core">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+    <div class="container">
+      <section id="main_content">
         <h1>
 <a id="cwoaws-core-ansible-playbook" class="anchor" href="#cwoaws-core-ansible-playbook" aria-hidden="true"><span class="octicon octicon-link"></span></a>CWOAWS CORE Ansible playbook</h1>
 
-<p>Note: Work in progress</p>
+<p>Note:  This is a core playbook, please review, customize per you needs, and test it first before applying on production environments! Please report any issues through GitHub or email me at <a href="mailto:alex@cloudwebops.com">alex@cloudwebops.com</a> and I'll do my best to get back to you!</p>
 
 <p>Recorded Terminal Session: <a href="http://cwoaws.s3-website.eu-central-1.amazonaws.com/session4.html">http://cwoaws.s3-website.eu-central-1.amazonaws.com/session4.html</a></p>
 
-<p>Purpose of CWOAWS CORE Ansible playbook is to start full operational AWS VPC infrastructure, all services on EC2 instances, RDS, etc, and to allow later execution of separated Playbooks for deployments, etc.</p>
+<p>CWOAWS CORE Ansible playbook have a purpose to setup operational AWS VPC infrastructure, all services on EC2 instances, RDS, etc, and to allow later execution of separated Playbooks for deployments, etc.</p>
 
 <p>CWOAWS CORE Ansible Playbook Tasks:</p>
 
@@ -46,7 +46,7 @@
 <li> Install webservers role on both instances (includes of other roles is possible, webservers role is required to allow instances registration to ELB)</li>
 <li> launch and configure public facing VPC ELB (cross_az_load_balancing) and attach VPC subnets</li>
 <li> deregister and register EC2 instances on ELB.</li>
-<li> info about ELB dnsname is writted in vars file and later can be used for DNS configuration</li>
+<li> info about ELB dnsname is written in vars file and later can be used for DNS configuration</li>
 </ul>
 
 <p>All informations about VPC are defined in main.yml and vpc_info.yml(during playbook execution) files (AZ, regions, keypair, vpc, subnets, elb dns name info) 
@@ -99,12 +99,8 @@ Add in file /home/ubuntu/.boto</p>
 <li> $ansible-playbook -i hosts deploy-aws-infra.yml </li>
 </ul>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/cloudwebops">cloudwebops</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
   </body>
 </html>
