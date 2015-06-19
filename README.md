@@ -1,7 +1,7 @@
 # CWOAWS CORE Ansible playbook
 
 
-Note:  This is a core playbook, please review, customize per you needs, and test it first before applying on production environments! Please report any issues through GitHub or email me at alex@cloudwebops.com and I'll do my best to get back to you!
+Note:  This is a core Ansible Playbook, please review, customize per you needs, and test it first before applying on production environments! Please report any issues through GitHub or email me at alex@cloudwebops.com and I'll do my best to get back to you!
 
 
 
@@ -10,13 +10,13 @@ Recorded Terminal Session: http://cwoaws.s3-website.eu-central-1.amazonaws.com/s
 CWOAWS CORE Ansible playbook have a purpose to setup operational AWS VPC infrastructure, all services on EC2 instances, RDS, etc, and to allow later execution of separated Playbooks for deployments, etc.
 
 CWOAWS CORE Ansible Playbook Tasks:
--  create 1 x VPC with 2 x VPC subnets in differrent AZ zones one AWS region
--  create 1 x security group
--  provision 2 x EC2 instances in 2 different AZ
--  Install webservers role on both instances (includes of other roles is possible, webservers role is required to allow instances registration to ELB)
--  launch and configure public facing VPC ELB (cross_az_load_balancing) and attach VPC subnets
--  deregister and register EC2 instances on ELB.
--  info about ELB dnsname is registered in dynamic vars file and later can be used for DNS configuration
+-  create 1 x VPC with 2 x VPC subnets in differrent AZ zones one AWS region,
+-  create 1 x security group,
+-  provision 2 x EC2 instances in 2 different AZ,
+-  Install webservers role on both instances (includes of other roles is possible, webservers role is required to allow instances registration to ELB),
+-  launch and configure public facing VPC ELB (cross_az_load_balancing) and attach VPC subnets,
+-  deregister and register EC2 instances on ELB,
+-  info about ELB dnsname is registered in vars file and later can be used for DNS configuration,
 
 All information about VPC are defined in main.yml and vpc_info.yml(during playbook execution) files (AZ, regions, keypair, vpc, subnets, elb dns name info) 
 .
@@ -37,7 +37,7 @@ Download to folder /etc/ansible/
 -  $ chmod +x /etc/ansible/ec2.py
 
 
-In aws console create IAM user with PowerUser privileges
+In aws console create IAM user with PowerUser privileges;
 Add in file /home/ubuntu/.boto
 -   [Credentials]
 -   aws_access_key_id = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
