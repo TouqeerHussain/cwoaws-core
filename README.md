@@ -16,9 +16,9 @@ CWOAWS CORE Ansible Playbook Tasks:
 -  Install webservers role on both instances (includes of other roles is possible, webservers role is required to allow instances registration to ELB)
 -  launch and configure public facing VPC ELB (cross_az_load_balancing) and attach VPC subnets
 -  deregister and register EC2 instances on ELB.
--  info about ELB dnsname is written in vars file and later can be used for DNS configuration
+-  info about ELB dnsname is registered in dynamic vars file and later can be used for DNS configuration
 
-All informations about VPC are defined in main.yml and vpc_info.yml(during playbook execution) files (AZ, regions, keypair, vpc, subnets, elb dns name info) 
+All information about VPC are defined in main.yml and vpc_info.yml(during playbook execution) files (AZ, regions, keypair, vpc, subnets, elb dns name info) 
 .
 
 # Installation
