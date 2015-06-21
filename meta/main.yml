@@ -1,6 +1,6 @@
 ---
 playbook_info:
-  author: Aleksandar N. - cloudwebops
+  author: Aleksandar Nenov (cloudwebops)
   description: CWOAWS CORE Ansible playbook
   license:
   min_ansible_version: 1.8
