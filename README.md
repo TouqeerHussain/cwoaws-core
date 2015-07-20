@@ -28,12 +28,12 @@ Ansible and Boto installation Ubuntu 14.04 LTS
 -  $ sudo apt-add-repository ppa:ansible/ansible
 -  $ sudo apt-get update
 -  $ sudo apt-get install ansible
--  $ apt-get install python-pip
--  $ pip install boto
+-  $ sudo apt-get install python-pip
+-  $ sudo pip install boto
 
 Download to folder /etc/ansible/
 -  $ wget https://raw.github.com/ansible/ansible/devel/plugins/inventory/ec2.py
--  $ wget https://raw.githubusercontent.com/ansible/ansible/devel/plugins/inventory/ec2.ini
+-  $ wget https://raw.github.com/ansible/ansible/devel/plugins/inventory/ec2.ini
 -  $ chmod +x /etc/ansible/ec2.py
 
 
